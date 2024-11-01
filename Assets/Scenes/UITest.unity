@@ -1108,8 +1108,8 @@ MonoBehaviour:
   healthSlider: {fileID: 1708122902}
   modifierCanvas: {fileID: 1444175661}
   modifierLeft: {fileID: 2027926539}
-  modifierRight: {fileID: 176023164}
-  modifierMiddle: {fileID: 963599375}
+  modifierMiddle: {fileID: 176023164}
+  modifierRight: {fileID: 963599375}
 --- !u!4 &725495257
 Transform:
   m_ObjectHideFlags: 0

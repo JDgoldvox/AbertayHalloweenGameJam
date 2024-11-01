@@ -1,35 +1,27 @@
-using System;
-using Unity.Mathematics;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ModifierManager : MonoBehaviour
 {
-    enum MODIFIERS
+    [SerializeField] private List<Modifier> modifiers;
+
+    public static ModifierManager Instance;
+
+    private void Awake()
     {
-        PROJECTILE_DAMAGE,
-        ADDITIONAL_HEALTH,
-        MOVEMENT_SPEED_UP
+        if(Instance == null)
+        {
+            Instance = this;
+        }
     }
 
-
-    void Start()
+    private void Start()
     {
-            
+        UIManager.Instance.EnableModifierCanvas(ReturnRandomModifier(), ReturnRandomModifier(), ReturnRandomModifier());
     }
-
-    void Update()
+    public Modifier ReturnRandomModifier()
     {
-        Debug.Log(ReturnRandomModifier());
-    }
-
-    private MODIFIERS ReturnRandomModifier()
-    {
-        //Get Number of elements inside MODIFIERS
-        var enumCount = Enum.GetNames(typeof(MODIFIERS)).Length;
-
-        //Get random index with MODIFIER count (min inclusive, max exclusive)
-        int randomIndex = UnityEngine.Random.Range(0, enumCount);
-
-        return (MODIFIERS)randomIndex;
+        int randomIndex = UnityEngine.Random.Range(0, modifiers.Count);
+        return modifiers[randomIndex];
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -9,23 +10,30 @@ public class EnemyBase : MonoBehaviour
         ATTACK
     }
 
-    [SerializeField] protected int maxHealth = 100;
-    protected int CurrentHealth = 100;
-    [SerializeField] protected float speed = 10;
+    [SerializeField] protected float maxHealth = 100;
+    protected float CurrentHealth = 100;
+    [SerializeField] protected float speed = 1;
     [SerializeField] protected float damage = 100;
     
     protected STATES CurrentState;
     protected STATES NextState;
     
+    private Vector3 _playerDirection;
     protected GameObject Player;
     private Rigidbody _rb;
+
+    private void Awake()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        
+        _rb = GetComponent<Rigidbody>();
+    }
 
     private void Start()
     {
         CurrentHealth = maxHealth;
-
-        Player = GameObject.FindGameObjectWithTag("Player");
-        _rb = GetComponent<Rigidbody>();
+        
+        _playerDirection = Player.transform.position - transform.position;
         
         CurrentState = STATES.IDLE;
         NextState = STATES.IDLE;
@@ -54,6 +62,33 @@ public class EnemyBase : MonoBehaviour
                 Debug.Log("Oh No, dont get here!");
                 break;
         }
+        
+        CurrentState = NextState;
+    }
+
+    private void FixedUpdate()
+    {
+        switch (CurrentState)
+        {
+            // IDLE Logic
+            case STATES.IDLE:
+                IdlePhysicsState();
+                break;
+            
+            // CHASE Logic
+            case STATES.CHASE:
+                ChasePhysicsState();
+                break;
+            
+            // ATTACK Logic
+            case STATES.ATTACK:
+                AttackPhysicsState();
+                break;
+            
+            default:
+                Debug.Log("Oh No, dont get here!");
+                break;
+        }
     }
 
     protected virtual void IdleState()
@@ -61,23 +96,34 @@ public class EnemyBase : MonoBehaviour
         NextState = STATES.CHASE;
     }
 
-    protected virtual void ChaseState()
-    {
-        MoveEnemy(Player.transform.position);
-    }
+    protected virtual void ChaseState() { }
     protected virtual void AttackState() { }
+    protected virtual void IdlePhysicsState() { }
+
+    protected virtual void ChasePhysicsState()
+    {
+        _playerDirection = Player.transform.position - transform.position;
+        MoveEnemy(_playerDirection.normalized * speed);
+    }
+    protected virtual void AttackPhysicsState() { }
+
     
     private void MoveEnemy(Vector3 velocity)
     {
         _rb.linearVelocity = velocity;
     }
     
-    public virtual void Damage(int damageTaken)
+    public virtual void Damage(float damageTaken)
     {
         CurrentHealth -= damageTaken;
+
+        if (CurrentHealth <= 0)
+        {
+            Kill();
+        }
     }
 
-    public virtual void Kill()
+    protected virtual void Kill()
     {
         Destroy(gameObject);
     }

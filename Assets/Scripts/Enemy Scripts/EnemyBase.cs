@@ -13,7 +13,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected float maxHealth = 100;
     protected float CurrentHealth = 100;
     [SerializeField] protected float speed = 1;
-    [SerializeField] public float damage = 100;
+    [SerializeField] protected float damage = 100;
     
     protected STATES CurrentState;
     protected STATES NextState;

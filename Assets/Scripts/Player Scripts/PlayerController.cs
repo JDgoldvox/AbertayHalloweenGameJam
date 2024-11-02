@@ -3,13 +3,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform camTransform;
-    
-    private Rigidbody _rb;
+    private Rigidbody rb;
+    private float speedMultiplier = 1.5f;
+
+    [SerializeField] private float linearVelocityCap;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -20,14 +22,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // TEMPORARY INPUT MANAGEMENT
         if (Input.GetKey(KeyCode.W))
         {
-            _rb.AddForce(camTransform.forward * 3f, ForceMode.VelocityChange);
+            rb.AddForce(camTransform.forward * speedMultiplier, ForceMode.Impulse);
         }
-        else
-        {
-            _rb.linearVelocity = Vector3.zero;
-        }
+
     }
 }

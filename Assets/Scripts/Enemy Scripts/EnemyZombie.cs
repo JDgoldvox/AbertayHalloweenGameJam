@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyGhost : EnemyBase
+public class EnemyZombie : EnemyBase
 {
     protected override void IdleState()
     {

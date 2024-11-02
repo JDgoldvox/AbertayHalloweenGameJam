@@ -26,6 +26,18 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(camTransform.forward * speedMultiplier, ForceMode.Impulse);
         }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            rb.AddForce(-camTransform.forward * speedMultiplier, ForceMode.Impulse);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(camTransform.right * speedMultiplier, ForceMode.Impulse);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(-camTransform.right * speedMultiplier, ForceMode.Impulse);
+        }
 
     }
 }

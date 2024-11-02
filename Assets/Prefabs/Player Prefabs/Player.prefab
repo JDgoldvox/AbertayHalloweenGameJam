@@ -68,7 +68,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -180,8 +180,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2619993843438857761}
   - component: {fileID: 5140067376186835413}
-  - component: {fileID: 6601164902645211893}
   - component: {fileID: 5461207360291558893}
+  - component: {fileID: 7176002354278407502}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -231,7 +231,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: -0, y: 0, z: -0}
---- !u!54 &6601164902645211893
+--- !u!114 &5461207360291558893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095787119148188784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e84b5f7342fc24a839192f83db0f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 4274212081116044111}
+  jumpMultiplier: 0
+--- !u!54 &7176002354278407502
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +254,7 @@ Rigidbody:
   m_GameObject: {fileID: 7095787119148188784}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -255,22 +269,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
---- !u!114 &5461207360291558893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7095787119148188784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e84b5f7342fc24a839192f83db0f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 4274212081116044111}
+  m_CollisionDetection: 0
 --- !u!1 &7579192264222589679
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +401,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FP Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972557962365578973, guid: 0d23d418744a21a43a1aac53ec996b47,
+        type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[0].Input.LegacyGain
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972557962365578973, guid: 0d23d418744a21a43a1aac53ec996b47,
+        type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[1].Input.LegacyGain
+      value: -800
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691256575134505430, guid: 0d23d418744a21a43a1aac53ec996b47,
+        type: 3}
+      propertyPath: Lens.FieldOfView
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8691256575134505430, guid: 0d23d418744a21a43a1aac53ec996b47,
         type: 3}

@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
         if (isMoving)
         {
+            direction.y = 0;
             rb.AddForce(direction.normalized * speedMultiplier, ForceMode.Impulse);
         }
     }

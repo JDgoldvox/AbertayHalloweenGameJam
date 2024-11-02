@@ -215,7 +215,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7095787119148188784}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d5b0f5ecdb667b843833b6a5b092b3bf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camTransform: {fileID: 4274212081116044111}
-  jumpMultiplier: 0
+  jumpMultiplier: 6
 --- !u!54 &7176002354278407502
 Rigidbody:
   m_ObjectHideFlags: 0

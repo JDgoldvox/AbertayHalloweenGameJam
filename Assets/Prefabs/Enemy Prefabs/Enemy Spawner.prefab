@@ -101,3 +101,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8573254707613158125, guid: ed7bd9dd82a4742479504c4511396464, type: 3}
+  - {fileID: -32510211286467100, guid: 7ee397ecb8daddd429c259fd5423d4af, type: 3}
+  - {fileID: 3567046573113899075, guid: 9f30b84d2d1751046b904bf39e49e1b1, type: 3}

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -7,7 +6,6 @@ public class Projectile : MonoBehaviour
     private float _speed;
     private float _damage;
     private float _despawnTime;
-    private Vector3 _rotation;
     [SerializeField] private Transform modelTransform;
     
     private Vector3 _direction;
@@ -30,34 +28,25 @@ public class Projectile : MonoBehaviour
         
         // Get new desired position
         Vector3 newPos = oldPos + _direction * distance;
-        RaycastHit[] hits;
-        
-        // Raycast along travel path
-        hits = Physics.RaycastAll(oldPos, newPos);
-        foreach (RaycastHit hit in hits)
-        {
-            // Don't hit the player that shot the bullet
-            if (hit.collider.gameObject != _owner.gameObject)
-            {
-                //Destroy(gameObject);
-
-                if (hit.collider.gameObject.CompareTag("Enemy"))
-                {
-                    // Damage Enemy
-                    hit.collider.gameObject.GetComponent<EnemyBase>().Damage(_damage);
-                }
-
-                if (hit.collider.gameObject.CompareTag("Player"))
-                {
-                    // Damage Player
-                }
-                
-                break;
-            }
-        }
         
         // Move to new position
         transform.position = newPos;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // If object not owner of projectile
+        if (other.gameObject != _owner)
+        {
+            // Deal damage to enemy
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                other.gameObject.GetComponent<EnemyBase>().Damage(_damage);
+            }
+            
+            // Delete Projectile Object
+            Destroy(gameObject);
+        }
     }
 
     public void SetDirection(Vector3 newDirection)
@@ -73,13 +62,12 @@ public class Projectile : MonoBehaviour
         this._owner = owner;
     }
 
-    public void SetType(ProjectileType projectileType)
+    private void SetType(ProjectileType projectileType)
     {
         this.projectileType = projectileType;
         _speed = projectileType.speed;
         _damage = projectileType.damage;
         _despawnTime = projectileType.despawnTime;
-        _rotation = projectileType.rotation;
         GetComponentInChildren<MeshFilter>().mesh = projectileType.projectileMesh;
         GetComponentInChildren<MeshRenderer>().material = projectileType.projectileMaterial;
     }

@@ -22,22 +22,33 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        UpdateMovement();
+    }
+
+    private void UpdateMovement()
+    {
+        Vector3 direction = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W)) //Forward
         {
-            rb.AddForce(camTransform.forward * speedMultiplier, ForceMode.Impulse);
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            rb.AddForce(-camTransform.forward * speedMultiplier, ForceMode.Impulse);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(camTransform.right * speedMultiplier, ForceMode.Impulse);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(-camTransform.right * speedMultiplier, ForceMode.Impulse);
+            direction += camTransform.forward;
         }
 
+        if (Input.GetKey(KeyCode.A)) //Right
+        {
+            direction += -camTransform.right;
+        }
+
+        if (Input.GetKey(KeyCode.D)) //Left
+        {
+            direction += camTransform.right;
+        }
+
+        if (Input.GetKey(KeyCode.S)) //Backwards
+        {
+            direction += -camTransform.forward;
+        }
+
+        rb.AddForce(direction.normalized * speedMultiplier, ForceMode.Impulse);
     }
 }

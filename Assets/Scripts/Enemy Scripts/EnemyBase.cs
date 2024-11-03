@@ -22,6 +22,10 @@ public class EnemyBase : MonoBehaviour
     protected GameObject Player;
     private Rigidbody _rb;
 
+    //drops
+    [SerializeField] private GameObject xpPrefab;
+    public float xpDropAmount;
+
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -125,6 +129,9 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Kill()
     {
+        GameObject newXPPrefab = Instantiate(xpPrefab);
+        newXPPrefab.transform.position = transform.position;
+        newXPPrefab.GetComponent<xpDrop>().SetXpAmount(xpDropAmount);
         Destroy(gameObject);
     }
 }

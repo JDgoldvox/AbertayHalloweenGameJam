@@ -4,7 +4,8 @@ using UnityEngine.UIElements;
 
 public class PumpkinMovement : MonoBehaviour
 {
-    [SerializeField] private float yDif; //amount to displace Y to -Y
+    [SerializeField] private float yDifDown; //amount to displace Y
+    [SerializeField] private float yDifUp; //amount to displace Y
     private Transform transform;
     private float upDownTimer = 0;
     private float maxUpDownTime = 2;
@@ -20,8 +21,8 @@ public class PumpkinMovement : MonoBehaviour
     void Start()
     {
         //set start and end positions
-        startPos = new Vector3(transform.position.x, transform.position.y - yDif, transform.position.z);
-        endPos = new Vector3(transform.position.x, transform.position.y + yDif, transform.position.z);
+        startPos = new Vector3(transform.position.x, transform.position.y - yDifDown, transform.position.z);
+        endPos = new Vector3(transform.position.x, transform.position.y + yDifUp, transform.position.z);
     }
 
     void Update()

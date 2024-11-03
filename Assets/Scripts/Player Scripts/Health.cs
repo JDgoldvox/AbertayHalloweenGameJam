@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public static Health Instance;
+
     [SerializeField] float maxHealth = 100f;
     public float currentHealth = 100f;
     [SerializeField] float invulnerabilityTime = 0.5f;
@@ -12,6 +14,11 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         _invulnerabilityTimer = 0;
+
+        if(Instance != null)
+        {
+            Instance = this;
+        }
     }
 
     private void Update()

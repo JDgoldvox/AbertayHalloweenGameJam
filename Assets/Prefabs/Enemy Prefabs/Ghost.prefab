@@ -93,3 +93,6 @@ MonoBehaviour:
   maxHealth: 100
   speed: 2
   damage: 5
+  xpPrefab: {fileID: 8647019140797457974, guid: d45b8447eb43ac94f833367c3a3dd2f7,
+    type: 3}
+  xpDropAmount: 10

@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        
+        xpSlider.value = 0;
     }
 
     public void ChangeHealthPercentage(float percentageChange)
@@ -32,9 +32,9 @@ public class UIManager : MonoBehaviour
         healthSlider.value += percentageChange;
     }
 
-    public void ChangeXPPercentage(float percentageChange)
+    public void SetXPPercentage(float percentageChange)
     {
-        healthSlider.value += percentageChange;
+        xpSlider.value = percentageChange;
     }
 
     public void EnableModifierCanvas(Modifier LeftModifierIn, Modifier middleModifierIn, Modifier rightModifierIn)

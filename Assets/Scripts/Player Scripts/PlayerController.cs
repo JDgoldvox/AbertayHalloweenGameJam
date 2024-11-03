@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform camTransform;
     private Rigidbody rb;
-    private float speedMultiplier = 0.6f;
+    private float speedMultiplier = 0.5f;
     [SerializeField] float jumpMultiplier;
     float jumpTimer = 0;
     float jumpCooldown = 1;

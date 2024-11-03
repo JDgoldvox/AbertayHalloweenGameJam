@@ -139,3 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yDifDown: 1
   yDifUp: 0
+  despawnTime: 30

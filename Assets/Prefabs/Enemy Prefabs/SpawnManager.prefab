@@ -48,7 +48,7 @@ MonoBehaviour:
     type: 3}
   minSpawnDistance: 10
   maxSpawnDistance: 30
-  spawnPoolSize: 20
+  spawnPoolSize: 15
   spawnPoolNumber: 1
   spawnTime: 10
   plane: {fileID: 0}

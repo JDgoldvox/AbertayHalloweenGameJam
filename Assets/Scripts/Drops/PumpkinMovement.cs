@@ -6,6 +6,7 @@ public class PumpkinMovement : MonoBehaviour
 {
     [SerializeField] private float yDifDown; //amount to displace Y
     [SerializeField] private float yDifUp; //amount to displace Y
+    [SerializeField] private float despawnTime;
     private Transform transform;
     private float upDownTimer = 0;
     private float maxUpDownTime = 2;
@@ -17,6 +18,7 @@ public class PumpkinMovement : MonoBehaviour
     private void Awake()
     {
         transform = GetComponent<Transform>();
+        Destroy(this.gameObject, despawnTime);
     }
     void Start()
     {

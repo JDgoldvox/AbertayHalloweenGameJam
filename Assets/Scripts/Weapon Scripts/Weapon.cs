@@ -4,7 +4,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private Projectile projectilePrefab;
-    [SerializeField] private float fireRate;
+    public float fireRate;
     public int projectileCount;
     public float projectileArc;
     [SerializeField] private GameObject owner;

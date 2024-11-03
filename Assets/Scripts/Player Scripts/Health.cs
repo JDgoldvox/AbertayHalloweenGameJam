@@ -41,7 +41,6 @@ public class Health : MonoBehaviour
                 currentHealth -= damage;
 
                 float percentage = damage / maxHealth;
-                Debug.Log(percentage);
 
                 // Take damage
                 UIManager.Instance.ChangeHealthPercentage(-percentage);
@@ -49,6 +48,11 @@ public class Health : MonoBehaviour
                 _invulnerabilityTimer = invulnerabilityTime;
             }
         }
+    }
+
+    public void InceaseMaxHealth(float healthIncreaseModifier)
+    {
+        maxHealth += healthIncreaseModifier;
     }
 
     private void GameOver()

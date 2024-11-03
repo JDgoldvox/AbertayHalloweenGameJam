@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Canvas modifierCanvas;
     [SerializeField] private GameObject modifierLeft, modifierMiddle, modifierRight; 
+    public string modifierLeftName, modifierMiddleName, modifierRightName;
 
     private void Awake()
     {
@@ -18,8 +17,6 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
-
-        modifierCanvas.enabled = true;
     }
 
     private void Start()
@@ -27,29 +24,33 @@ public class UIManager : MonoBehaviour
         xpSlider.value = 0;
     }
 
-    public void ChangeHealthPercentage(float percentageChange)
-    {
-        healthSlider.value += percentageChange;
-    }
-
     public void SetXPPercentage(float percentageChange)
     {
         xpSlider.value = percentageChange;
     }
 
+    public void ChangeHealthPercentage(float percentageChange)
+    {
+        healthSlider.value += percentageChange;
+    }
+
     public void EnableModifierCanvas(Modifier LeftModifierIn, Modifier middleModifierIn, Modifier rightModifierIn)
     {
-        modifierCanvas.enabled = true;
+        modifierCanvas.gameObject.SetActive(true);
+        Debug.Log("enabling canvas");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         //set modifier info
-        SetModifierInfo(modifierLeft, LeftModifierIn);
-        SetModifierInfo(modifierMiddle, middleModifierIn);
-        SetModifierInfo(modifierRight, rightModifierIn);
+        modifierLeftName = SetModifierInfo(modifierLeft, LeftModifierIn);
+        modifierMiddleName = SetModifierInfo(modifierMiddle, middleModifierIn);
+        modifierRightName = SetModifierInfo(modifierRight, rightModifierIn);
     } 
 
-    private void SetModifierInfo(GameObject modifierTo, Modifier modifierFrom)
+    private string SetModifierInfo(GameObject modifierTo, Modifier modifierFrom)
     {
         //Modifiers WILL ONLY have 2 children;
+        string modName = "no name";
 
         //get modifier text fields
         TMP_Text[] textChildren = modifierTo.GetComponentsInChildren<TMP_Text>();
@@ -60,6 +61,7 @@ public class UIManager : MonoBehaviour
             if (textChildren[i].name == "ModifierName") //set title
             {
                 textChildren[i].text = modifierFrom.modifierName;
+                modName = modifierFrom.modifierName;
             }
             else if(textChildren[i].name == "Description") //set description
             {
@@ -67,5 +69,12 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        return modName;
     }
+
+    public void DisableModifierCanvas()
+    {
+        modifierCanvas.gameObject.SetActive(false);
+    }
+
 }

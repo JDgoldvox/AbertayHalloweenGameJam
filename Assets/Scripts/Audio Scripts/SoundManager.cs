@@ -20,16 +20,32 @@ public class SoundManager : MonoBehaviour
     {
         WEAPON_SHOOT,
         
-        PLAYER_HIT,
-        PLAYER_FOOTSTEPS,
+        PLAYER_HIT_1,
+        PLAYER_HIT_2,
+        PLAYER_HIT_3,
+        
+        PLAYER_FOOTSTEPS_1,
+        PLAYER_FOOTSTEPS_2,
+        PLAYER_FOOTSTEPS_3,
         
         ENEMY_HIT,
+        ENEMY_DIE,
         ZOMBIE_GROWL,
         PLAGUE_DOCTOR_NOISE,
         GHOST_SOUND,
         
         EXP_PICKUP,
-        LEVEL_UP
+        LEVEL_UP,
+        
+        HEARTBEAT_SLOW,
+        HEARTBEAT_MID,
+        HEARTBEAT_FAST,
+        
+        AMBIENT_SOUND_1,
+        AMBIENT_SOUND_2,
+        AMBIENT_SOUND_3,
+        AMBIENT_SOUND_4,
+        AMBIENT_SOUND_5,
     }
 
     private void Awake()

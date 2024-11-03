@@ -46,6 +46,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundObject: {fileID: -8196161691006010785, guid: 29cd6f2e827cdf442b275ab4244470fb,
     type: 3}
-  audioClips: []
+  audioClips:
+  - SoundName: 0
+    Clip: {fileID: 0}
+  - SoundName: 1
+    Clip: {fileID: 0}
+  - SoundName: 2
+    Clip: {fileID: 0}
+  - SoundName: 3
+    Clip: {fileID: 0}
+  - SoundName: 4
+    Clip: {fileID: 0}
+  - SoundName: 5
+    Clip: {fileID: 0}
+  - SoundName: 6
+    Clip: {fileID: 0}
+  - SoundName: 7
+    Clip: {fileID: 0}
+  - SoundName: 8
+    Clip: {fileID: 0}
+  - SoundName: 9
+    Clip: {fileID: 0}
+  - SoundName: 10
+    Clip: {fileID: 0}
+  - SoundName: 11
+    Clip: {fileID: 0}
+  - SoundName: 12
+    Clip: {fileID: 0}
+  - SoundName: 13
+    Clip: {fileID: 0}
+  - SoundName: 14
+    Clip: {fileID: 0}
+  - SoundName: 15
+    Clip: {fileID: 0}
+  - SoundName: 16
+    Clip: {fileID: 0}
+  - SoundName: 17
+    Clip: {fileID: 0}
+  - SoundName: 18
+    Clip: {fileID: 0}
+  - SoundName: 19
+    Clip: {fileID: 0}
+  - SoundName: 20
+    Clip: {fileID: 0}
+  - SoundName: 20
+    Clip: {fileID: 0}
   pitchModifier: 1
   maxDistance: 100

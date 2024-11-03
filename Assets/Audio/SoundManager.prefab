@@ -62,9 +62,9 @@ MonoBehaviour:
   - SoundName: 6
     Clip: {fileID: 8300000, guid: 161d5a427e88d594f9906708ccdc5663, type: 3}
   - SoundName: 7
-    Clip: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+    Clip: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
   - SoundName: 8
-    Clip: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    Clip: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
   - SoundName: 9
     Clip: {fileID: 8300000, guid: ab6850659b1264a8a8de37a637c5507f, type: 3}
   - SoundName: 10
@@ -92,4 +92,4 @@ MonoBehaviour:
   - SoundName: 21
     Clip: {fileID: 8300000, guid: b5d433e2dc13c4e16a8972c56834def4, type: 3}
   pitchModifier: 1
-  maxDistance: 100
+  maxDistance: 50

@@ -22,6 +22,8 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && _fireTimer <= 0)
         {
+            SoundManager.instance.PlaySound(SoundManager.SFX.WEAPON_SHOOT, transform, 1.0f,false);
+            
             float angleInterval = projectileArc / (projectileCount - 1); 
             
             // Calculate direction of each projectile

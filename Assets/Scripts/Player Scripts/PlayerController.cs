@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpMultiplier;
     float jumpTimer = 0;
     float jumpCooldown = 1;
+    private float timer = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,6 +62,26 @@ public class PlayerController : MonoBehaviour
         {
             direction.y = 0;
             rb.AddForce(direction.normalized * speedMultiplier, ForceMode.Impulse);
+            timer -= Time.deltaTime;
+
+            if (timer < 0)
+            {
+                timer = 0.3f;
+                int randomInt = UnityEngine.Random.Range(1, 3);
+
+                switch (randomInt)
+                {
+                    case 1:
+                        SoundManager.instance.PlaySound(SoundManager.SFX.PLAYER_FOOTSTEPS_1, transform, 1.0f, false);
+                        break;
+                    case 2:
+                        SoundManager.instance.PlaySound(SoundManager.SFX.PLAYER_FOOTSTEPS_2, transform, 1.0f, false);
+                        break;
+                    case 3:
+                        SoundManager.instance.PlaySound(SoundManager.SFX.PLAYER_FOOTSTEPS_3, transform, 1.0f, false);
+                        break;
+                }
+            }
         }
     }
 

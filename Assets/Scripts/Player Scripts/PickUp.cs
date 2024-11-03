@@ -11,6 +11,8 @@ public class PickUp : MonoBehaviour
             float dropAmount = other.gameObject.GetComponent<xpDrop>().xpAmount;
             XPTrigger(dropAmount);  
             Destroy(other.gameObject);
+            
+            SoundManager.instance.PlaySound(SoundManager.SFX.EXP_PICKUP, other.transform, 0.2f,false);
         }
     }
 

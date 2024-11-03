@@ -63,6 +63,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plague Doctor
       objectReference: {fileID: 0}
+    - target: {fileID: 4626374760449445039, guid: 313d627cd8e927f4e8de10f2d5766a2f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4346608842568992544, guid: f3d843460c756d44985ceca53d4c2878,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

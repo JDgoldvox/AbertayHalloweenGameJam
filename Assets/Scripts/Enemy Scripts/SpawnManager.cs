@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
@@ -9,32 +7,68 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float minSpawnDistance;
     [SerializeField] private float maxSpawnDistance;
     [SerializeField] private float spawnPoolSize;
+    [SerializeField] private float spawnPoolNumber;
+    [SerializeField] private float spawnTime;
+    [SerializeField] private Transform plane;
     private GameObject _player;
+    private float _nextWaveTimer;
+    private float _waveNumber;
     
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        _waveNumber = 1;
+        _nextWaveTimer = spawnTime;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        SpawnEnemyWave();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Record elapsed time
+        _nextWaveTimer -= Time.deltaTime;
+        
+        // Automatic Spawning
+        if (_nextWaveTimer <= 0)
+        {
+            for (int i = 0; i < spawnPoolNumber; i++)
+            {
+                SpawnEnemyWave();
+            }
+            
+            // Increment wave number
+            _waveNumber++;
+            
+            // Reset wave timer
+            _nextWaveTimer = spawnTime;
+            
+            // Increase spawn pool size
+            if (_waveNumber % 2 == 0)
+            {
+                spawnPoolSize += 1;
+            }
+            
+            // Increase number of spawn pools
+            if (_waveNumber % 5 == 0)
+            {
+                spawnPoolNumber += 1;
+            }
+        }
+        
+        // Manual Spawning Button
+        if (Input.GetKeyDown(KeyCode.O))
         {
             Vector3 spawnPoolPosition;
             // Temp Spawn Logic
             do
             {
-                spawnPoolPosition = (Random.onUnitSphere) * maxSpawnDistance;
+                spawnPoolPosition = plane.transform.position + (Random.onUnitSphere) * maxSpawnDistance;
+                spawnPoolPosition.y = plane.transform.position.y + 1;
             } while ((_player.transform.position - spawnPoolPosition).sqrMagnitude <= minSpawnDistance * minSpawnDistance);
-
-            spawnPoolPosition.y = 1;
 
             for (int i = 0; i < spawnPoolSize; i++)
             {
@@ -42,6 +76,24 @@ public class SpawnManager : MonoBehaviour
                 spawnPosition.y = spawnPoolPosition.y;
                 Instantiate(spawnerPrefab, spawnPosition, Quaternion.identity);
             }
+        }
+    }
+
+    void SpawnEnemyWave()
+    {
+        Vector3 spawnPoolPosition;
+        
+        do
+        {
+            spawnPoolPosition = plane.transform.position + (Random.onUnitSphere) * maxSpawnDistance;
+            spawnPoolPosition.y = plane.transform.position.y + 1;
+        } while ((_player.transform.position - spawnPoolPosition).sqrMagnitude <= minSpawnDistance * minSpawnDistance);
+
+        for (int i = 0; i < spawnPoolSize; i++)
+        {
+            Vector3 spawnPosition = (Random.onUnitSphere * 3) + spawnPoolPosition;
+            spawnPosition.y = spawnPoolPosition.y;
+            Instantiate(spawnerPrefab, spawnPosition, Quaternion.identity);
         }
     }
 }

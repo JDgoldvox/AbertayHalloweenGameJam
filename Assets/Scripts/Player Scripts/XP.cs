@@ -35,6 +35,7 @@ public class XP : MonoBehaviour
             float leftOverXP = currentXP - maxXP;
             currentXP = leftOverXP;
             levelCount++;
+            maxXP *= 1.1f;
 
             //inc max health by 10%
             Health healthScript = player.GetComponent<Health>();

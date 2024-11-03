@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -93,7 +94,7 @@ public class Health : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("Game Over");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void IncreaseHealth(float num)

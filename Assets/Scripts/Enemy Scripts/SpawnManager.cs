@@ -47,13 +47,13 @@ public class SpawnManager : MonoBehaviour
             _nextWaveTimer = spawnTime;
             
             // Increase spawn pool size
-            if (_waveNumber % 2 == 0)
+            if (_waveNumber % 1 == 0)
             {
-                spawnPoolSize += 1;
+                spawnPoolSize += 0;
             }
             
             // Increase number of spawn pools
-            if (_waveNumber % 5 == 0)
+            if (_waveNumber % 3 == 0)
             {
                 spawnPoolNumber += 1;
             }

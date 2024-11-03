@@ -9,7 +9,7 @@ public class ModifierManager : MonoBehaviour
     [SerializeField] private GameObject player;
 
     float healthIncrease = 20f;
-    float movementSpeedMultiplier = 0.2f;
+    float movementSpeedMultiplier = 0.05f;
 
     private void Awake()
     {
@@ -39,15 +39,14 @@ public class ModifierManager : MonoBehaviour
                 player.GetComponentInChildren<Weapon>().projectileCount += 2;
                 break;
             case "Increase Projectile Fire Rate":
-                player.GetComponentInChildren<Weapon>().fireRate += 1;
+                player.GetComponentInChildren<Weapon>().fireRate += 0.2f;
                 break;
             case "Increase Projectile Spread":
-                player.GetComponentInChildren<Weapon>().projectileArc += 10;
+                player.GetComponentInChildren<Weapon>().projectileArc += 5;
                 break;
             case "Decrease Projectile Spread":
-                player.GetComponentInChildren<Weapon>().projectileArc -= 10;
+                player.GetComponentInChildren<Weapon>().projectileArc -= 5;
                 break;
-
         }
 
         Debug.Log("Added new modifier");

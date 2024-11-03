@@ -69,6 +69,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4346608842568992544, guid: f3d843460c756d44985ceca53d4c2878,
         type: 3}
+    - target: {fileID: 7813810499643749165, guid: 313d627cd8e927f4e8de10f2d5766a2f,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813810499643749165, guid: 313d627cd8e927f4e8de10f2d5766a2f,
+        type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813810499643749165, guid: 313d627cd8e927f4e8de10f2d5766a2f,
+        type: 3}
+      propertyPath: xpDropAmount
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -97,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  speed: 1
+  speed: 3
   damage: 5
   xpPrefab: {fileID: 8647019140797457974, guid: d45b8447eb43ac94f833367c3a3dd2f7,
     type: 3}

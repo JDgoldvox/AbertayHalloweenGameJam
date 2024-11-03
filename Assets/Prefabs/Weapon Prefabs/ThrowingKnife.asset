@@ -15,7 +15,6 @@ MonoBehaviour:
   speed: 100
   damage: 100
   despawnTime: 5
-  rotation: {x: 90, y: 90, z: 90}
   projectileMesh: {fileID: -8670151273213183110, guid: 7b0bede1daee2a74398ae4fa042ba0d8,
     type: 3}
-  projectileMaterial: {fileID: 2100000, guid: 6a3f27a522bc1fb46885710cc54e9f2f, type: 2}
+  projectileMaterial: {fileID: 2100000, guid: 6355236dc0e4976419cd8ca4801c9551, type: 2}

@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
         //update HP
         Health healthScript = player.GetComponent<Health>();
         hpText.text = "Health: " + healthScript.currentHealth.ToString() + " / " + healthScript.maxHealth.ToString();
+        healthSlider.value = healthScript.currentHealth / healthScript.maxHealth;
 
         //update XP
         XP xpScript = player.GetComponent<XP>();

@@ -4,6 +4,7 @@ using System;
 
 public class XP : MonoBehaviour
 {
+    private GameObject player;
     public static XP Instance;
     [HideInInspector] public float currentXP = 0;
     [HideInInspector] public float maxXP = 100;
@@ -16,6 +17,7 @@ public class XP : MonoBehaviour
         {
             Instance = this;
         }
+        player = gameObject;
     }
 
     public void IncreaseXP(float amount)
@@ -34,8 +36,11 @@ public class XP : MonoBehaviour
             currentXP = leftOverXP;
             levelCount++;
 
-            //add health when leveling up
-            UIManager.Instance.ChangeHealthPercentage(additionalHealthOnLevelUp);
+            //inc max health by 10%
+            Health healthScript = player.GetComponent<Health>();
+            healthScript.maxHealth += 10f;
+            //heal by 30%
+            healthScript.IncreaseHealth(healthScript.currentHealth + (healthScript.maxHealth * 0.3f)); 
 
             //generate 3 random modifiers   
             Modifier a = ModifierManager.Instance.ReturnRandomModifier();

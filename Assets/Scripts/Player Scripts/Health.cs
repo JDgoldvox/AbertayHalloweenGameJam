@@ -95,4 +95,13 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Game Over");
     }
+
+    public void IncreaseHealth(float num)
+    {
+        currentHealth += num;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
 }

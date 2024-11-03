@@ -47,4 +47,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7593625630496653962, guid: bb63cdbece21abb49816ede950e7a2bd,
     type: 3}
   fireRate: 5
+  projectileCount: 1
+  projectileArc: 45
   owner: {fileID: 0}
+  camTransform: {fileID: 0}

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff9581e6108ac34facb72ca76362777, type: 3}
   m_Name: ThrowingKnife
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 50
   damage: 100
-  despawnTime: 5
+  despawnTime: 3
   projectileMesh: {fileID: -8670151273213183110, guid: 7b0bede1daee2a74398ae4fa042ba0d8,
     type: 3}
   projectileMaterial: {fileID: 2100000, guid: 6355236dc0e4976419cd8ca4801c9551, type: 2}

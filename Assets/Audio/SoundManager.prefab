@@ -46,6 +46,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundObject: {fileID: -8196161691006010785, guid: 29cd6f2e827cdf442b275ab4244470fb,
     type: 3}
-  audioClips: []
+  audioClips:
+  - SoundName: 0
+    Clip: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+  - SoundName: 1
+    Clip: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
+  - SoundName: 2
+    Clip: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+  - SoundName: 3
+    Clip: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
+  - SoundName: 4
+    Clip: {fileID: 8300000, guid: 9a30499e47789df48aa9bdb1ec7b0982, type: 3}
+  - SoundName: 5
+    Clip: {fileID: 8300000, guid: 1d7e7e6569aab5a45a837f470eaddc8b, type: 3}
+  - SoundName: 6
+    Clip: {fileID: 8300000, guid: 161d5a427e88d594f9906708ccdc5663, type: 3}
+  - SoundName: 7
+    Clip: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+  - SoundName: 8
+    Clip: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+  - SoundName: 9
+    Clip: {fileID: 8300000, guid: ab6850659b1264a8a8de37a637c5507f, type: 3}
+  - SoundName: 10
+    Clip: {fileID: 8300000, guid: 79a487faa751a46eebd8a8358c7dea4d, type: 3}
+  - SoundName: 11
+    Clip: {fileID: 8300000, guid: 6cf1b99ab6dfb4126b558c1fc377f879, type: 3}
+  - SoundName: 12
+    Clip: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
+  - SoundName: 13
+    Clip: {fileID: 8300000, guid: 7a9de5c4d998126449cf964a6b27a8b0, type: 3}
+  - SoundName: 14
+    Clip: {fileID: 8300000, guid: b44a1bf6a851f426297d07773f7a7baf, type: 3}
+  - SoundName: 15
+    Clip: {fileID: 8300000, guid: ab6f29aa43f83404ab3a3ce185c3a40f, type: 3}
+  - SoundName: 16
+    Clip: {fileID: 8300000, guid: 2062560f3c53246f9b3557db5188ce64, type: 3}
+  - SoundName: 17
+    Clip: {fileID: 8300000, guid: ba6ee2847e0c544418e4a0cf6a64a988, type: 3}
+  - SoundName: 18
+    Clip: {fileID: 8300000, guid: 74605ff5dd62c42d5b4f619f46478946, type: 3}
+  - SoundName: 19
+    Clip: {fileID: 8300000, guid: 1e974ca10e85a4f2689ebe7850862f9c, type: 3}
+  - SoundName: 20
+    Clip: {fileID: 8300000, guid: 7d3bbc4aca02943cf9bb63771d5d1558, type: 3}
+  - SoundName: 21
+    Clip: {fileID: 8300000, guid: b5d433e2dc13c4e16a8972c56834def4, type: 3}
   pitchModifier: 1
   maxDistance: 100

@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource soundObject;
     [SerializeField] private SFXClips[] audioClips;
     public float pitchModifier = 1;
-    [SerializeField] private float maxDistance = 100;
+    [SerializeField] private float maxDistance = 30;
 
     [System.Serializable]
     public class SFXClips

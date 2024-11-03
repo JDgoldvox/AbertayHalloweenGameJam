@@ -14,7 +14,7 @@ public class XP : MonoBehaviour
     {
         if (Instance == null)
         {
-            Instance = new XP();
+            Instance = this;
         }
     }
 
@@ -42,6 +42,8 @@ public class XP : MonoBehaviour
             Modifier b = ModifierManager.Instance.ReturnRandomModifier();
             Modifier c = ModifierManager.Instance.ReturnRandomModifier();
             UIManager.Instance.EnableModifierCanvas(a, b, c);
+            
+            SoundManager.instance.PlaySound(SoundManager.SFX.LEVEL_UP, transform, 1.0f,false);
         }
     }
 }

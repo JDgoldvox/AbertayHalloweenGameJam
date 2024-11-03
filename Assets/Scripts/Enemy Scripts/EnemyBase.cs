@@ -26,11 +26,15 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private GameObject xpPrefab;
     public float xpDropAmount;
 
+    protected float growlTimer;
+
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         
         _rb = GetComponent<Rigidbody>();
+        
+        growlTimer = UnityEngine.Random.Range(2, 10);
     }
 
     private void Start()
@@ -41,6 +45,21 @@ public class EnemyBase : MonoBehaviour
         
         CurrentState = STATES.IDLE;
         NextState = STATES.IDLE;
+        
+        int randomInt = UnityEngine.Random.Range(1, 3);
+
+        switch (randomInt)
+        {
+            case 1:
+                SoundManager.instance.PlaySound(SoundManager.SFX.GHOST_SOUND, transform, 0.1f, true);
+                break;
+            case 2:
+                SoundManager.instance.PlaySound(SoundManager.SFX.ZOMBIE_GROWL, transform, 0.1f, true);
+                break;
+            case 3:
+                SoundManager.instance.PlaySound(SoundManager.SFX.PLAGUE_DOCTOR_NOISE, transform, 0.1f, true);
+                break;
+        }
     }
 
     private void Update()
@@ -68,6 +87,8 @@ public class EnemyBase : MonoBehaviour
         }
         
         CurrentState = NextState;
+        
+        growlTimer -= Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -119,6 +140,8 @@ public class EnemyBase : MonoBehaviour
     
     public virtual void Damage(float damageTaken)
     {
+        SoundManager.instance.PlaySound(SoundManager.SFX.ENEMY_HIT, transform, 0.5f,true);
+        
         CurrentHealth -= damageTaken;
 
         if (CurrentHealth <= 0)
@@ -129,6 +152,8 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Kill()
     {
+        SoundManager.instance.PlaySound(SoundManager.SFX.ENEMY_DIE, transform, 1.0f,true);
+        
         GameObject newXPPrefab = Instantiate(xpPrefab);
         newXPPrefab.transform.position = transform.position;
         newXPPrefab.GetComponent<xpDrop>().SetXpAmount(xpDropAmount);

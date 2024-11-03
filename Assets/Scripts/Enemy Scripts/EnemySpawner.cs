@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length - 1)], transform.position, Quaternion.identity);
+        Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform.position, Quaternion.identity);
         
         Destroy(gameObject);
     }

@@ -36,6 +36,9 @@ public class UIManager : MonoBehaviour
 
     public void EnableModifierCanvas(Modifier LeftModifierIn, Modifier middleModifierIn, Modifier rightModifierIn)
     {
+        //pause game
+        Time.timeScale = 0;
+
         modifierCanvas.gameObject.SetActive(true);
         Debug.Log("enabling canvas");
         Cursor.lockState = CursorLockMode.None;

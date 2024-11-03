@@ -8,6 +8,7 @@ public class ModifierButtons : MonoBehaviour
         ModifierManager.Instance.AddModifier(name);
         UIManager.Instance.DisableModifierCanvas();
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 
     public void MiddleModifier()
@@ -16,6 +17,7 @@ public class ModifierButtons : MonoBehaviour
         ModifierManager.Instance.AddModifier(name);
         UIManager.Instance.DisableModifierCanvas();
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 
     public void RightModifier()
@@ -24,5 +26,6 @@ public class ModifierButtons : MonoBehaviour
         ModifierManager.Instance.AddModifier(name);
         UIManager.Instance.DisableModifierCanvas();
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 }

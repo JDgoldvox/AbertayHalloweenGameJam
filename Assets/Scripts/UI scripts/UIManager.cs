@@ -4,12 +4,16 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     public static UIManager Instance;
     [SerializeField] private Slider xpSlider;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Canvas modifierCanvas;
     [SerializeField] private GameObject modifierLeft, modifierMiddle, modifierRight; 
-    public string modifierLeftName, modifierMiddleName, modifierRightName;
+    [HideInInspector] public string modifierLeftName, modifierMiddleName, modifierRightName;
+    [SerializeField] private TMP_Text xpText;
+    [SerializeField] private TMP_Text xpLevelText;
+    [SerializeField] private TMP_Text hpText;
 
     private void Awake()
     {
@@ -24,6 +28,19 @@ public class UIManager : MonoBehaviour
         xpSlider.value = 0;
     }
 
+    private void Update()
+    {
+        //update HP
+        Health healthScript = player.GetComponent<Health>();
+        hpText.text = "Health: " + healthScript.currentHealth.ToString() + " / " + healthScript.maxHealth.ToString();
+
+        //update XP
+        XP xpScript = player.GetComponent<XP>();
+        xpText.text = "XP: " + xpScript.currentXP.ToString() + " / " + xpScript.maxXP.ToString();
+
+        //update level
+        xpLevelText.text = "lvl " + xpScript.levelCount.ToString();
+    }
     public void SetXPPercentage(float percentageChange)
     {
         xpSlider.value = percentageChange;

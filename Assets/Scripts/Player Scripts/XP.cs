@@ -5,9 +5,9 @@ using System;
 public class XP : MonoBehaviour
 {
     public static XP Instance;
-    private float currentXP = 0;
-    private float maxXP = 100;
-    public int levelCount = 0;
+    [HideInInspector] public float currentXP = 0;
+    [HideInInspector] public float maxXP = 100;
+    [HideInInspector] public int levelCount = 0;
     private float additionalHealthOnLevelUp = 0.3f;
 
     private void Awake()

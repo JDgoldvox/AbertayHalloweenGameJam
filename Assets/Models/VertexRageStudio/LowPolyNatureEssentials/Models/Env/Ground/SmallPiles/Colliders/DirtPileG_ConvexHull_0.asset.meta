@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 316869a95d9daff42998eb3738bf44cf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4300000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266763
+  packageName: 'Low Poly Nature: Essentials'
+  packageVersion: 1.0
+  assetPath: Assets/VertexRageStudio/LowPolyNatureEssentials/Models/Env/Ground/SmallPiles/Colliders/DirtPileG_ConvexHull_0.asset
+  uploadId: 616976

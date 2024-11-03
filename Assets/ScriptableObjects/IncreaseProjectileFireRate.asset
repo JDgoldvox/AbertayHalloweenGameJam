@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79254498c5228549b92ca98afffd759, type: 3}
   m_Name: IncreaseProjectileFireRate
   m_EditorClassIdentifier: 
-  modifierName: 
-  description: 
+  modifierName: Increase Projectile Fire Rate
+  description: Increase Waepon Fire Rate!
   sprite: {fileID: 0}

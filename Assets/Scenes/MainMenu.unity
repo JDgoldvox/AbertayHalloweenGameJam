@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings: {fileID: 11400000, guid: 4f70157a7d27db24f9165ec0192999d2, type: 2}
+  _slider: {fileID: 1196338427}
 --- !u!1 &148560334
 GameObject:
   m_ObjectHideFlags: 0
